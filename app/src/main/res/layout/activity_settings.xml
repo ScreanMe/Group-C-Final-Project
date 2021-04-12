@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB3B"
+    android:background="@drawable/notebook_paper_tanned_out_texture"
     tools:context=".Settings">
 
     <TextView
@@ -24,8 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="176dp"
+        android:backgroundTint="#10000000"
+        android:fontFamily="@font/bowlby_one_sc"
         android:onClick="clear"
         android:text="CLEAR ALL DATA"
+        android:textColor="#404040"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

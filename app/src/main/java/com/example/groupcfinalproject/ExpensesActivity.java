@@ -20,7 +20,7 @@ public class ExpensesActivity extends AppCompatActivity {
 
     ArrayAdapter budgetArrayAdapter;
     DatabaseHelper databaseHelper;
-    List<BudgetModel> getsumofday;
+    List<sumOfDayClass> getsumofday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class ExpensesActivity extends AppCompatActivity {
 
 
         lv_sumofday = findViewById(R.id.sumOfDaysList);
+
 
         showItemsOnListView();
 
@@ -41,7 +42,7 @@ public class ExpensesActivity extends AppCompatActivity {
         BudgetModel budgetModel = new BudgetModel();
         getsumofday = databaseHelper.getSumOfDay();
         //important to show item in list view, line #90
-        budgetArrayAdapter = new ArrayAdapter<BudgetModel>(ExpensesActivity.this, android.R.layout.simple_list_item_1, getsumofday);
+        budgetArrayAdapter = new ArrayAdapter<sumOfDayClass>(ExpensesActivity.this, android.R.layout.simple_list_item_1, getsumofday);
         lv_sumofday.setAdapter(budgetArrayAdapter);
 
 
@@ -61,7 +62,7 @@ public class ExpensesActivity extends AppCompatActivity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         databaseHelper.deleteAll();
-                        showItemsOnListView();
+                        lv_sumofday.setAdapter(null);
                         Toast.makeText(ExpensesActivity.this, "All Data Cleared", Toast.LENGTH_SHORT).show();
                         break;
 

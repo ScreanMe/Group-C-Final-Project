@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB3B"
+    android:background="@drawable/notebook_paper_tanned_out_texture"
     tools:context=".SmallNotebookActivity">
 
     <Button
@@ -14,18 +14,27 @@
         android:layout_height="70dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="572dp"
+        android:backgroundTint="#10000000"
+        android:fontFamily="@font/bowlby_one_sc"
         android:onClick="goTo_HomeActivity"
         android:text="@string/home"
+        android:textColor="#404040"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
 
         android:id="@+id/small_to_big"
         android:layout_width="160dp"
         android:layout_height="70dp"
         android:layout_marginTop="572dp"
+        android:backgroundTint="#10000000"
+        android:fontFamily="@font/bowlby_one_sc"
         android:onClick="goTo_BigNotebookActivity"
         android:text="@string/big_notebook"
+        android:textColor="#404040"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toEndOf="@+id/small_to_home"
@@ -33,48 +42,52 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="334dp"
-        android:layout_height="44dp"
+        android:layout_width="355dp"
+        android:layout_height="62dp"
 
         android:layout_marginTop="16dp"
         android:fontFamily="@font/autour_one"
         android:text="@string/small_notebook"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/btn_add"
 
-        android:layout_width="330dp"
+        android:layout_width="344dp"
         android:layout_height="79dp"
-        android:layout_marginTop="468dp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="472dp"
+        android:backgroundTint="#10000000"
+        android:fontFamily="@font/bowlby_one_sc"
+        android:includeFontPadding="false"
         android:text="@string/add_item"
+        android:textColor="#404040"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="330dp"
+        android:layout_width="352dp"
         android:layout_height="45dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="96dp"
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="@font/autour_one"
         android:hint="@string/money_spent_on_grocery"
         android:inputType="textPersonName"
-        android:textSize="20sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ListView
         android:id="@+id/lv_nameList"
@@ -90,17 +103,16 @@
 
     <EditText
         android:id="@+id/et_amount"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="339dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="144dp"
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="@font/autour_one"
         android:hint="@string/amount_spent_10"
         android:inputType="number"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 

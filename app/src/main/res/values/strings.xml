@@ -12,6 +12,9 @@
     <string name="date">Save Date</string>
     <string name="dd_mm_yyyy">dd/mm/yyyy</string>
     <string name="add_item">Add Item</string>
+    <string name="savings">Savings</string>
+    <string name="monthly_income_plan">Monthly income plan</string>
+    <string name="expenses">Expenses</string>
     <string-array name="currencies">
         <item>$(CAD)</item>
         <item>$(USD)</item>

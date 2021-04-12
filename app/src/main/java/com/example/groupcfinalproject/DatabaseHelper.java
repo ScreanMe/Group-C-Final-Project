@@ -119,13 +119,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return returnList;
     }
 
-    public List<BudgetModel> getSumOfDay()
+    public List<sumOfDayClass> getSumOfDay()
     {
-        List<BudgetModel> returnList = new ArrayList<>();
+        List<sumOfDayClass> returnList = new ArrayList<>();
         //
-        //String queryString = "SELECT "+ COLUMN_BUDGET_NAME + ",SUM(" + COLUMN_BUDGET_AMOUNT +") as sum FROM " + BUDGET_TABLE + " WHERE " + COLUMN_BUDGET_DATE + "= ?"
+        String queryString = "SELECT " + COLUMN_BUDGET_DATE + " as date " + ", SUM(" + COLUMN_BUDGET_AMOUNT + ") as sum FROM " + BUDGET_TABLE + " WHERE " + COLUMN_BUDGET_DATE + "= '12-Apr-2021' ";
         //String queryString = " SELECT * FROM " + BUDGET_TABLE + "GROUP BY" + COLUMN_BUDGET_DATE;
-        String queryString = " SELECT * FROM " + BUDGET_TABLE;
+        //String queryString = " SELECT * FROM " + BUDGET_TABLE;
 
         SQLiteDatabase db= this.getReadableDatabase();
 
@@ -134,16 +134,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst())
         {
-            //loop throught result then create new customers
+            //loop through result then create new customers
             do{
-                int budgetID = cursor.getInt(0);
-                String budgetName = cursor.getString(1);
-                //int budgetAmount = cursor.getInt(2);
-                int budgetAmount = cursor.getInt(2);
-                String budgetDate = cursor.getString(3);
+                int budgetAmount = cursor.getInt(cursor.getColumnIndex("sum"));
+                String budgetDate = cursor.getString(cursor.getColumnIndex("date"));
 
-                BudgetModel newBudget= new BudgetModel(budgetID, budgetName, budgetAmount, budgetDate);
-                returnList.add(newBudget);
+                sumOfDayClass newSum= new sumOfDayClass(budgetDate, budgetAmount);
+                returnList.add(newSum);
             }while(cursor.moveToNext());
         }
         else {
