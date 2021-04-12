@@ -63,7 +63,7 @@ public class SmallNotebookActivity extends AppCompatActivity {
 
 
                 // -1 is a default value cuz why not?
-                budgetModel = new BudgetModel(-1, et_name.getText().toString(), Integer.parseInt(et_amount.getText().toString()));
+                budgetModel = new BudgetModel(-1, et_name.getText().toString(), Integer.parseInt(et_amount.getText().toString()), "01/01/2000");
                 Toast.makeText(SmallNotebookActivity.this, budgetModel.toString(), Toast.LENGTH_SHORT).show();
             }
 
@@ -71,7 +71,7 @@ public class SmallNotebookActivity extends AppCompatActivity {
             {
                 Toast.makeText(SmallNotebookActivity.this, "Error creating item!", Toast.LENGTH_SHORT).show();
                 //if it fails add this as default
-                 budgetModel = new BudgetModel(-1, "error creating item!", 0);
+                 budgetModel = new BudgetModel(-1, "error creating item!", 0, "01/01/2000");
             }
 
             DatabaseHelper databaseHelper = new DatabaseHelper(SmallNotebookActivity.this);

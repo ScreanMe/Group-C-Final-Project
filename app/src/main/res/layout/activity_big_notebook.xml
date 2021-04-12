@@ -35,6 +35,7 @@
         android:id="@+id/button4"
         android:layout_width="317dp"
         android:layout_height="72dp"
+        android:onClick="goTo_ExpensesActivity"
         android:text="Expenses"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

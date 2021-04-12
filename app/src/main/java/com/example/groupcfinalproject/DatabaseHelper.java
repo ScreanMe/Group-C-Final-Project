@@ -21,12 +21,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_BUDGET_NAME = "BUDGET_NAME";
     public static final String COLUMN_BUDGET_AMOUNT = "BUDGET_AMOUNT";
     public static final String COLUMN_ID = "ID";
-    //public static final String COLUMN_BUDGET_DATE = "BUDGET_DATE";
+    public static final String COLUMN_BUDGET_DATE = "BUDGET_DATE";
 
 
     //implementing constructor here as need to satify father side else it gives error on the line 13
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "budget.db", null, 1);
+        super(context, "budget.db", null, 2);
 
     }
 
@@ -37,8 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //main code
-        //String createTableStatement= "CREATE TABLE " + BUDGET_TABLE + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_BUDGET_NAME + " TEXT, " + COLUMN_BUDGET_AMOUNT + " INT, " + COLUMN_BUDGET_DATE + " TEXT)";
-        String createTableStatement= "CREATE TABLE " + BUDGET_TABLE + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_BUDGET_NAME + " TEXT, " + COLUMN_BUDGET_AMOUNT + " INT)";
+        String createTableStatement= "CREATE TABLE " + BUDGET_TABLE + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_BUDGET_NAME + " TEXT, " + COLUMN_BUDGET_AMOUNT + " INT, " + COLUMN_BUDGET_DATE + " TEXT)";
         db.execSQL(createTableStatement);
 
     }
@@ -59,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cv.put(COLUMN_BUDGET_NAME, budgetModel.getName());
         cv.put(COLUMN_BUDGET_AMOUNT, budgetModel.getAmount());
-        //cv.put(COLUMN_BUDGET_DATE, budgetModel.getDate());
+        cv.put(COLUMN_BUDGET_DATE, budgetModel.getDate());
 
 
         long insert = db.insert(BUDGET_TABLE, null, cv);
@@ -85,6 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
     //lets list all items
     public List<BudgetModel> getEveryone()
     {
@@ -104,8 +104,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int budgetID = cursor.getInt(0);
                 String budgetName = cursor.getString(1);
                 int budgetAmount = cursor.getInt(2);
+                String budgetDate = cursor.getString(3);
 
-                BudgetModel newBudget= new BudgetModel(budgetID, budgetName, budgetAmount);
+                BudgetModel newBudget= new BudgetModel(budgetID, budgetName, budgetAmount, budgetDate);
                 returnList.add(newBudget);
             }while(cursor.moveToNext());
         }
@@ -116,6 +117,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return returnList;
+    }
 
+    public List<BudgetModel> getSumOfDay()
+    {
+        List<BudgetModel> returnList = new ArrayList<>();
+        //
+        //String queryString = "SELECT "+ COLUMN_BUDGET_NAME + ",SUM(" + COLUMN_BUDGET_AMOUNT +") as sum FROM " + BUDGET_TABLE + " WHERE " + COLUMN_BUDGET_DATE + "= ?"
+        //String queryString = " SELECT * FROM " + BUDGET_TABLE + "GROUP BY" + COLUMN_BUDGET_DATE;
+        String queryString = " SELECT * FROM " + BUDGET_TABLE;
+
+        SQLiteDatabase db= this.getReadableDatabase();
+
+        //rawQ is used as its return cursor
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst())
+        {
+            //loop throught result then create new customers
+            do{
+                int budgetID = cursor.getInt(0);
+                String budgetName = cursor.getString(1);
+                //int budgetAmount = cursor.getInt(2);
+                int budgetAmount = cursor.getInt(2);
+                String budgetDate = cursor.getString(3);
+
+                BudgetModel newBudget= new BudgetModel(budgetID, budgetName, budgetAmount, budgetDate);
+                returnList.add(newBudget);
+            }while(cursor.moveToNext());
+        }
+        else {
+            // if no items in the list, do nothing
+
+        }
+        //close up
+        cursor.close();
+        db.close();
+        return returnList;
     }
 }

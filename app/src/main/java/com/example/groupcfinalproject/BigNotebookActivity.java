@@ -18,4 +18,9 @@ public class BigNotebookActivity extends AppCompatActivity {
         Intent smallnotebook_intent = new Intent(this, SmallNotebookActivity.class);
         startActivity(smallnotebook_intent);
     }
+
+    public void goTo_ExpensesActivity(View view) {
+        Intent expenses_intent = new Intent(this, ExpensesActivity.class);
+        startActivity(expenses_intent);
+    }
 }

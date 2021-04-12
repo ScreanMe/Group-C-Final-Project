@@ -9,13 +9,19 @@ public class BudgetModel{
     private int id;
     private String name;
     private int amount;
+    private String date;
     //cons
 
 
-    public BudgetModel(int id, String name, int amount) {
+    public BudgetModel() {
+
+    }
+
+    public BudgetModel(int id, String name, int amount, String date) {
         this.id = id;
         this.name = name;
         this.amount = amount;
+        this.date = date;
     }
 
     public BudgetModel(int id) {
@@ -53,6 +59,10 @@ public class BudgetModel{
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         String formattedDate = df.format(c);
         return formattedDate;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
 
