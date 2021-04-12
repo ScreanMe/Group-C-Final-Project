@@ -1,7 +1,9 @@
 package com.example.groupcfinalproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -49,6 +51,30 @@ public class ExpensesActivity extends AppCompatActivity {
     public void goTo_BigNotebookActivity(View view) {
         Intent bignotebook_intent = new Intent(this, BigNotebookActivity.class);
         startActivity(bignotebook_intent);
+    }
+
+    public void clear(View view) {
+        databaseHelper = new DatabaseHelper(ExpensesActivity.this);
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        databaseHelper.deleteAll();
+                        showItemsOnListView();
+                        Toast.makeText(ExpensesActivity.this, "All Data Cleared", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        dialog.dismiss();
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ExpensesActivity.this);
+        builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
     }
 
 }
