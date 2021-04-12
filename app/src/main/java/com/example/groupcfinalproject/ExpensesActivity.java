@@ -30,6 +30,7 @@ public class ExpensesActivity extends AppCompatActivity {
 
         lv_sumofday = findViewById(R.id.sumOfDaysList);
 
+
         showItemsOnListView();
 
     }
@@ -61,7 +62,7 @@ public class ExpensesActivity extends AppCompatActivity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         databaseHelper.deleteAll();
-                        showItemsOnListView();
+                        lv_sumofday.setAdapter(null);
                         Toast.makeText(ExpensesActivity.this, "All Data Cleared", Toast.LENGTH_SHORT).show();
                         break;
 

@@ -123,7 +123,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         List<sumOfDayClass> returnList = new ArrayList<>();
         //
-        String queryString = "SELECT " + COLUMN_BUDGET_DATE + " as date " + ", SUM(" + COLUMN_BUDGET_AMOUNT + ") as sum FROM " + BUDGET_TABLE + " WHERE " + COLUMN_BUDGET_DATE + "= '11-Apr-2021' ";
+        String queryString = "SELECT " + COLUMN_BUDGET_DATE + " as date " + ", SUM(" + COLUMN_BUDGET_AMOUNT + ") as sum FROM " + BUDGET_TABLE + " WHERE " + COLUMN_BUDGET_DATE + "= '12-Apr-2021' ";
         //String queryString = " SELECT * FROM " + BUDGET_TABLE + "GROUP BY" + COLUMN_BUDGET_DATE;
         //String queryString = " SELECT * FROM " + BUDGET_TABLE;
 
