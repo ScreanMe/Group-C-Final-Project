@@ -68,7 +68,7 @@ public class BudgetModel{
 
     @Override
     public String toString() {
-        return name + " - $" + amount + " " + getDate();
+        return name + " - $" + amount + " " + date;
     }
 
 }
