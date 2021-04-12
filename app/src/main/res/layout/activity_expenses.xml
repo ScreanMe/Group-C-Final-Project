@@ -9,24 +9,28 @@
 
     <TextView
         android:id="@+id/Expenses_textview"
-        android:layout_width="109dp"
-        android:layout_height="56dp"
+        android:layout_width="164dp"
+        android:layout_height="57dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/autour_one"
+        android:gravity="center"
         android:text="Expenses"
+        android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="644dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="564dp"
         android:onClick="goTo_BigNotebookActivity"
         android:text="Back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,20 +38,35 @@
         android:id="@+id/sumOfDaysList"
         android:layout_width="357dp"
         android:layout_height="256dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="136dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/clear_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="644dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="564dp"
         android:onClick="clear"
         android:text="Clear ALl"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.751"
+        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="357dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="84dp"
+        android:fontFamily="@font/autour_one"
+        android:gravity="center"
+        android:text="List of Total spent on Day"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
